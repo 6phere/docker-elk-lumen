@@ -7,7 +7,7 @@ Easy as Build and Run Docker composition for [Lumen API Suite from Sixphere](htt
 ## Requirements & Dependencies
 
 * [Docker](https://www.docker.com)
-* [Sixphere Lumen Archetype](https://bitbucket.org/sixphere-team/lumen-api-suite)
+* [Sixphere Lumen Archetype](https://github.com/6phere/lumen-api-suite)
 * [ELK Docker](https://hub.docker.com/r/sebp/elk/)
 * [MySQL](https://hub.docker.com/_/mysql/)
 
@@ -60,7 +60,7 @@ If you are using Docker Toolbox you should enable the volume /var/www/html/app i
 
 We have a Lumen Application connect to MySQL and ELK
 
-* [Lumen](https://bitbucket.org/sixphere-team/lumen-api-suite)
+* [Sixphere Lumen Archetype](https://github.com/6phere/lumen-api-suite)
 * [ELK Docker](https://hub.docker.com/r/sebp/elk/)
 * [MySQL](https://hub.docker.com/_/mysql/)
 

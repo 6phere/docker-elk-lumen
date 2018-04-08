@@ -1,6 +1,6 @@
 # Sixphere Lumen API Suite + ELK + MySQL with Docker
 
-Easy as Build and Run Docker composition for [Lumen API Suite from Sixphere](https://bitbucket.org/sixphere-team/lumen-api-suite)
+Easy as Build and Run Docker composition for [Lumen API Suite from Sixphere](https://github.com/6phere/lumen-api-suite)
 
 ![Docker](assets/img/overview.png?raw=true)
 

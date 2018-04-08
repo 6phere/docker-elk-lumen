@@ -1,0 +1,75 @@
+version: '3'
+
+services:
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: proxy
+    env_file:
+      - .env
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./lumen/certs/nginx.crt:/etc/nginx/certs/${APP_DOMAIN}.crt
+      - ./lumen/certs/nginx.key:/etc/nginx/certs/${APP_DOMAIN}.key
+    network_mode: bridge
+
+  mysql:
+    image: mysql
+    container_name: mysql
+    env_file:
+      - .env
+    network_mode: bridge
+    hostname: mysql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data/mysql/data:/var/lib/mysql
+
+  lumen:
+    image: lumen
+    container_name: lumen
+    env_file:
+      - .env
+    build:
+      context: ./lumen
+      dockerfile: Dockerfile
+      args:
+        KIBANA_HOST: ${KIBANA_HOST}
+        ELASTIC_SEARCH_HOST: ${ELASTIC_SEARCH_HOST}
+        APP_DOMAIN: ${APP_DOMAIN}
+    restart: always
+    ports:
+      - "8080:80"
+      - "8443:443"
+    network_mode: bridge
+    links:
+      - elk:elk
+      - mysql:mysql
+    volumes:
+      - ./lumen/certs/nginx.crt:/etc/nginx/ssl/${APP_DOMAIN}.crt
+      - ./lumen/certs/nginx.key:/etc/nginx/ssl/${APP_DOMAIN}.key
+      - ./data/app:/var/www/html/app
+    environment:
+      - VIRTUAL_HOST=${APP_ENV}api.${APP_DOMAIN}
+      - VIRTUAL_PORT=443
+      - VIRTUAL_PROTO=https
+
+  elk:
+    image: elk
+    build:
+      context: ./elk
+      dockerfile: Dockerfile
+    container_name: elk
+    network_mode: bridge
+    ports:
+      - "5044:5044"
+      - "5601:5601"
+      - "9200:9200"
+    environment:
+        - VIRTUAL_HOST=${APP_ENV}elk.${APP_DOMAIN}
+        - VIRTUAL_PORT=5601

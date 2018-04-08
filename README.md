@@ -81,5 +81,19 @@ You must execute in Powershell this:
 $Env:COMPOSE_CONVERT_WINDOWS_PATHS=1
 ```
 
-## More Info
-Contact with [codelovers@sixphere.com](mailto:codelovers@sixphere.com)
+# Licence
+
+Licenced under GNU GENERAL PUBLIC LICENSE [...]
+
+# Author
+
+[Sixphere](http://www.sixphere.com "Sixphere") is not only a group of experienced professionals, that keep a huge amount of knowledge, take care about what and how they do their job. They solve their partner problems in an agile way and are aware of their customer needs through emotional intelligence connections.
+
+Sixphere is a simpler way of understanding IT services, based on a strong and well balanced mix-ture of principles.
+Searching for strong professional relationships, supplying strong technical skills and offering a deep knowledge; in a collaborative, adaptative and agile way to reach its goal: helping to carry out its customer’s objectives, or better said its partners. Would you like us to be partners? Let us sail together on your trip.
+
+[Sixphere Technologies](http://www.sixphere.com "Sixphere Technologies") 2018
+
+## Contact
+
+Want to comment or share something, contact us codelovers@sixphere.com

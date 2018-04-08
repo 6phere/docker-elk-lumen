@@ -64,7 +64,7 @@ We have a Lumen Application connect to MySQL and ELK
 * [ELK Docker](https://hub.docker.com/r/sebp/elk/)
 * [MySQL](https://hub.docker.com/_/mysql/)
 
-![Arquitecture](assets/img/arquitecture.svg?raw=true)
+![Arquitecture](assets/img/arquitecture.png?raw=true)
 
 ## Troubleshoting
 
